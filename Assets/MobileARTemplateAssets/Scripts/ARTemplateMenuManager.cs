@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class ARTemplateMenuManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class ARTemplateMenuManager : MonoBehaviour
             return;
         }
 
-        if (objectIndex < 0 || objectIndex >= m_ObjectSpawner.objectPrefabs.Length)
+        if (objectIndex < 0 || objectIndex >= m_ObjectSpawner.objectPrefabs.Count)
         {
             Debug.LogWarning("Object index is out of bounds.");
             return;

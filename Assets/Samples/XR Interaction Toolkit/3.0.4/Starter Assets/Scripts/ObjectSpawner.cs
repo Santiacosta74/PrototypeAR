@@ -190,6 +190,13 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         /// Otherwise, it will spawn the prefab at the index.
         /// </remarks>
         /// <seealso cref="objectSpawned"/>
+
+        public void SetSpawnOptionIndex(int index) // Nueva función para cambiar el índice
+        {
+            if (index >= 0 && index < m_ObjectPrefabs.Count)
+                m_SpawnOptionIndex = index;
+        }
+
         public bool TrySpawnObject(Vector3 spawnPoint, Vector3 spawnNormal)
         {
             if (m_OnlySpawnInView)
@@ -204,8 +211,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 }
             }
 
+            // Usar el índice seleccionado de `m_SpawnOptionIndex` en lugar de uno aleatorio.
             var objectIndex = isSpawnOptionRandomized ? Random.Range(0, m_ObjectPrefabs.Count) : m_SpawnOptionIndex;
             var newObject = Instantiate(m_ObjectPrefabs[objectIndex]);
+
             if (m_SpawnAsChildren)
                 newObject.transform.parent = transform;
 

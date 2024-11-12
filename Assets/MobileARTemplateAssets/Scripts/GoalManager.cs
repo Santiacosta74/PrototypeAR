@@ -114,7 +114,7 @@ namespace MobileARTemplateAssets
         void CompleteGoal()
         {
             if (m_CurrentGoal.CurrentGoal == OnboardingGoals.TapSurface)
-                m_ObjectSpawner.OnObjectSpawned -= OnObjectSpawned;
+                //m_ObjectSpawner.OnObjectSpawned -= OnObjectSpawned;
 
             m_CurrentGoal.Completed = true;
             m_CurrentGoalIndex++;
@@ -151,7 +151,7 @@ namespace MobileARTemplateAssets
             else if (m_CurrentGoal.CurrentGoal == OnboardingGoals.TapSurface)
             {
                 m_SurfacesTapped = 0;
-                m_ObjectSpawner.OnObjectSpawned += OnObjectSpawned;
+               // m_ObjectSpawner.OnObjectSpawner += OnObjectSpawned;
             }
         }
 

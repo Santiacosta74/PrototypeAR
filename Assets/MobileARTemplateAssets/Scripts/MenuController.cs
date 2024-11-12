@@ -1,14 +1,15 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class MenuController : MonoBehaviour
 {
-    public ObjectSpawner objectSpawner; // Referencia al script ObjectSpawner
+    [SerializeField] ObjectSpawner objectSpawner; // Referencia al script ObjectSpawner
 
-    public void SelectObject(GameObject newObject)
+    public void OnMesaButtonPressed()
     {
         if (objectSpawner != null)
         {
-            objectSpawner.SetObjectToSpawn(newObject); // Solo selecciona el objeto
+            objectSpawner.SetSpawnOptionIndex(0); // Índice para la mesa
         }
         else
         {
@@ -16,4 +17,28 @@ public class MenuController : MonoBehaviour
         }
     }
 
+    public void OnLamparaButtonPressed()
+    {
+        if (objectSpawner != null)
+        {
+            objectSpawner.SetSpawnOptionIndex(1); // Índice para la lámpara
+        }
+        else
+        {
+            Debug.LogWarning("No se asignó el ObjectSpawner en el inspector.");
+        }
+    }
+
+    public void OnCamaButtonPressed()
+    {
+        if (objectSpawner != null)
+        {
+            objectSpawner.SetSpawnOptionIndex(2); // Índice para la cama
+        }
+        else
+        {
+            Debug.LogWarning("No se asignó el ObjectSpawner en el inspector.");
+        }
+    }
 }
+
